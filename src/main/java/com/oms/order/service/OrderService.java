@@ -16,11 +16,18 @@ public class OrderService {
 
 	@Autowired
 	OrderRepository orderRepository;
-	
+
+	@Autowired
+	KafkaProducerService kafkaProducerService;
+
 	public void createOrder(Order order) {
 		orderRepository.save(order);
+		//To-do assuming here they updated the user_stocks_purchase_details table
+		// so now we can send request to kafka
+		//String message == in this String message should be user details. like email, sms, body
+		kafkaProducerService.sendMessage(message);
 	}
-	
+
 	@GetMapping("/{orderId}")
 	public Order getOrderByOrderId(@PathVariable("orderId")int orderId) {
 		return orderRepository.findById(orderId).orElseGet(null);

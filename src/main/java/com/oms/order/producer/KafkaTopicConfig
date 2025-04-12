@@ -1,0 +1,8 @@
+
+@Configuration
+public class KafkaTopicConfiguration {
+    @Bean
+    public NewTopic topicConfig() {
+        return new NewTopic("Team2", 1, (short) 1);
+    }
+}
