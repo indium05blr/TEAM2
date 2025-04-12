@@ -22,7 +22,7 @@ public class OrderService {
 	}
 	
 	@GetMapping("/{orderId}")
-	public Order getOrderByOrderId(@PathVariable("orderId")String orderId) {
+	public Order getOrderByOrderId(@PathVariable("orderId")int orderId) {
 		return orderRepository.findById(orderId).orElseGet(null);
 	}
 	

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.oms.order.entity.Order;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, String> {
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 	  
 	public List<Order> findByStatus(String status);
 }

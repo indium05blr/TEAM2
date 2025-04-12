@@ -1,5 +1,6 @@
 package com.oms.order.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,28 +8,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order1")
 public class Order {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private String orderId;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "order_id")
+	private Integer orderId;
 	
+	@Column(name = "user_id")
 	private String userId;
 	
+	@Column(name = "stock_id")
 	private String stockId;
 	
+	@Column(name = "no_of_stocks")
 	private int noOfStocks;
 	
 	private String status;
 	
-	private double amount;
+	private String amount;
 
-	public String getOrderId() {
+
+	public Integer getOrderId() {
 		return orderId;
 	}
 
-	public void setOrderId(String orderId) {
+	public void setOrderId(Integer orderId) {
 		this.orderId = orderId;
 	}
 
@@ -64,11 +70,11 @@ public class Order {
 		this.status = status;
 	}
 
-	public double getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
